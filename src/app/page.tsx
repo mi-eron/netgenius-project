@@ -1,12 +1,13 @@
 import "./_page.scss";
 
-import { BGImage, Navbar } from "@/components";
+import { BGImage, Hero, Navbar } from "@/components";
 
 export default function Home() {
     return (
         <main className="home">
             <Navbar />
             <BGImage />
+            <Hero />
         </main>
     );
 }

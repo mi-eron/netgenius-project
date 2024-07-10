@@ -1,0 +1,24 @@
+@import "@/styles/global";
+
+.hero {
+    height: 100vh;
+    height: 100svh;
+    @include flex(column, $gap: 1rem);
+
+    .hero_headline {
+        text-align: center;
+
+        span {
+            color: var(--clr-accent);
+        }
+    }
+
+    &--btn-container {
+        @include flex($gap: 1rem);
+    }
+
+    @include for-tablet-landscape-up {
+        height: 95vh;
+        height: 95svh;
+    }
+}
