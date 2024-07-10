@@ -30,7 +30,7 @@
     background-color: var(--clr-white-900);
     border-radius: var(--btn-border-radius);
     color: var(--clr-black-900);
-    font-size: var(--fs-heading-6);
+    font-size: var(--fs-200);
 
     &--outline {
         background-color: transparent;
@@ -46,19 +46,28 @@
 .card {
     padding: 1rem 1.5rem;
     @include flex(column, $gap: 1rem);
-    background-color: var(--clr-gray);
+    background-color: var(--clr-secondary-900);
     border-radius: var(--border-radius);
+    color: var(--clr-white-900);
 
     & > * {
-        color: var(--clr-black);
+        color: inherit;
+    }
+
+    p {
+        text-align: center;
     }
 
     &--bordered {
-        border: 1px solid var(--clr-white);
+        border: 1px solid var(--clr-white-900);
     }
 
     &--flex-start {
         @include flex(column, center, flex-start, 1rem);
+
+        p {
+            text-align: left;
+        }
     }
 }
 

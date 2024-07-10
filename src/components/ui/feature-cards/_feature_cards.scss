@@ -1,0 +1,48 @@
+@import "@/styles/global";
+
+.feature_cards {
+    --_max-width: 330px;
+
+    padding-block: 3rem;
+    @include flex(row, $gap: 0.5rem, $wrap: wrap);
+
+    .card {
+        max-width: var(--_max-width);
+        border: 1px solid var(--clr-white-900);
+
+        &:nth-child(2) {
+            background-color: var(--clr-accent);
+            border: 1px solid var(--clr-secondary-900);
+
+            & > * {
+                color: var(--clr-black-900);
+            }
+        }
+    }
+
+    @include for-tablet-landscape-up {
+        padding-top: 1rem;
+        @include flex(row, $gap: 0);
+
+        .card {
+            padding-block: 1.5rem;
+            padding-inline: 1rem;
+
+            &:first-child {
+                border-right: none;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &:nth-child(2) {
+                padding-block: 2.5rem;
+            }
+
+            &:last-child {
+                border-left: none;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+}

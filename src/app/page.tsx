@@ -1,6 +1,6 @@
 import "./_page.scss";
 
-import { BGImage, Hero, Navbar } from "@/components";
+import { BGImage, FeatureCards, Hero, Navbar } from "@/components";
 
 export default function Home() {
     return (
@@ -8,6 +8,7 @@ export default function Home() {
             <Navbar />
             <BGImage />
             <Hero />
+            <FeatureCards />
         </main>
     );
 }
