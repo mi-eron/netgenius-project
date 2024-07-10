@@ -1,0 +1,9 @@
+@import "@/styles/global";
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    @include flex(column, flex-start);
+    position: relative;
+}

@@ -1,0 +1,99 @@
+@import "@/styles/global";
+
+.navbar {
+    padding-block: 1.2rem;
+    @include flex(column, $gap: 1rem);
+    transition: background-color 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    &--bg {
+        background-color: var(--clr-primary-900);
+    }
+
+    .nav_buttons {
+        width: 100%;
+        @include flex(row, space-between);
+
+        .nav_button {
+            @include reset();
+            color: var(--clr-white-900);
+            @include clickable();
+            transform: rotateZ(35deg);
+
+            & > * {
+                transform: rotateZ(35deg);
+                animation: nav_button_animation 0.25s ease-in-out forwards;
+            }
+        }
+    }
+
+    .nav_links {
+        width: 100%;
+        padding-block: 3rem;
+        @include flex(column, flex-start, center, 1rem);
+
+        .nav_item {
+            padding: 0.5rem;
+            @include flex();
+            @include clickable();
+            opacity: 0;
+            transform: translateY(-75%);
+            animation: nav_link_animation calc(var(--_i) * 0.25s) ease-in-out
+                forwards;
+
+            &--selected {
+                border-bottom: 1px solid var(--clr-white-900);
+            }
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    @include for-tablet-landscape-up {
+        @include flex(row, space-between);
+
+        &--bg {
+            background-color: transparent;
+        }
+
+        .nav_buttons {
+            width: fit-content;
+
+            .nav_button {
+                display: none;
+            }
+        }
+
+        .nav_links {
+            width: fit-content;
+            padding-block: 0;
+            @include flex(row, $gap: 0.5rem);
+        }
+    }
+}
+
+@keyframes nav_link_animation {
+    0% {
+        opacity: 0;
+        transform: translateY(-75%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nav_button_animation {
+    0% {
+        opacity: 0.75;
+        transform: rotateZ(35deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateZ(-35deg);
+    }
+}
