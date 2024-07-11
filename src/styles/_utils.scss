@@ -19,6 +19,10 @@
 .p {
     color: var(--clr-gray-900);
     font-size: var(--fs-100);
+
+    &--up {
+        text-transform: uppercase;
+    }
 }
 
 .logo {
@@ -28,22 +32,38 @@
 }
 
 .btn {
-    padding: 0.5rem 1rem;
-    @include flex($gap: 1rem);
+    --_padding: 0.6rem 1rem;
+
+    @include reset();
+    padding: var(--_padding);
+    @include flex($gap: 0.5rem);
     @include clickable();
     background-color: var(--clr-white-900);
     border-radius: var(--btn-border-radius);
     color: var(--clr-black-900);
-    font-size: var(--fs-200);
 
     &--outline {
         background-color: transparent;
+        outline: 1px solid var(--clr-white-900);
         color: var(--clr-white-900);
-        border: 1px solid var(--clr-white-900);
+    }
+
+    &--no-border {
+        background-color: transparent;
+        outline: none;
+        color: var(--clr-white-900);
     }
 
     &--info {
-        @include flex(column, center, flex-start, $gap: 0.5rem);
+        @include flex(column, center, flex-start);
+    }
+
+    & > * {
+        color: inherit;
+    }
+
+    @include for-tablet-landscape-up {
+        --_padding: 0.5rem 1.2rem;
     }
 }
 
@@ -77,14 +97,22 @@
 }
 
 .icon {
-    width: clamp(2.375rem, 2.375rem + 1vh, 2.813rem);
-    height: clamp(2.375rem, 2.375rem + 1vh, 2.813rem);
+    width: 60px;
+    height: 45px;
     @include flex();
-    background-color: var(--clr-white);
+    color: var(--clr-black-900);
 
     & > * {
-        color: var(--clr-black);
-        font-size: clamp(1.25rem, 1.25rem + 1vh, 1.563rem);
+        color: inherit;
+    }
+
+    &--round {
+        width: 35px;
+        height: 35px;
+        @include flex();
+        background-color: var(--clr-white-900);
+        border-radius: 50%;
+        color: var(--clr-black-900);
     }
 }
 

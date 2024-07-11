@@ -28,9 +28,11 @@ const featureCards = [
 export const FeatureCards = () => {
     return (
         <section className="feature_cards">
+            <div className="section_bg" />
             {featureCards.map(({ id, title, description, icon }) => (
                 <div key={id} className="card">
                     <Image
+                        className="icon"
                         src={icon}
                         quality={100}
                         width={60}

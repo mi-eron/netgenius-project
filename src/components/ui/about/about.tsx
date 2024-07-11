@@ -6,6 +6,7 @@ import Image from "next/image";
 export const About = () => {
     return (
         <section className="about">
+            <div className="section_bg" />
             <div className="about_content">
                 <h2 className="h_1">About Us</h2>
                 <h3 className="h_2">
@@ -22,7 +23,7 @@ export const About = () => {
 
                 <ul className="bullet_points">
                     <li className="bullet_item">
-                        <span>
+                        <span className="icon--round">
                             <RiUserStarLine className="h_4" />
                         </span>
                         <div className="content">
@@ -35,7 +36,7 @@ export const About = () => {
                         </div>
                     </li>
                     <li className="bullet_item">
-                        <span>
+                        <span className="icon--round">
                             <HiOutlineSupport className="h_4" />
                         </span>
                         <div className="content">

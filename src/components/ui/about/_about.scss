@@ -16,15 +16,6 @@
             .bullet_item {
                 @include flex(row, flex-start, flex-start, $gap: 1rem);
 
-                span {
-                    width: 35px;
-                    height: 35px;
-                    @include flex();
-                    background-color: var(--clr-accent);
-                    border-radius: 50%;
-                    color: var(--clr-black-900);
-                }
-
                 .content {
                     width: 90%;
                     @include flex(column, flex-start, flex-start, $gap: 1rem);

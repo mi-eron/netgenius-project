@@ -4,6 +4,7 @@ import Image from "next/image";
 export const BGImage = () => {
     return (
         <div className="bg_image">
+            <div className="dark_bg" />
             <Image
                 src="/images/hero-bg.jpg"
                 quality={75}

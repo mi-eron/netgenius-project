@@ -4,9 +4,6 @@
     --max-width: 1100px;
     --btn-border-radius: 2px;
     --border-radius: 3px;
-    --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-        "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
     --clr-primary: 2, 2, 2;
     --clr-secondary: 20, 20, 20;
@@ -33,10 +30,10 @@
     --fs-700: 3rem;
 
     --padding-inline: 1rem;
-    --padding-top: 3rem;
+    --padding-block: 1.5rem;
 
     @include for-tablet-landscape-up {
-        --padding-top: 8rem;
+        --padding-block: 4rem;
     }
 
     @include for-desktop-up {
@@ -47,7 +44,7 @@
         // --fs-500: 4rem;
         --fs-700: 4rem;
 
-        --padding-top: 10rem;
+        --padding-block: 5rem;
         --padding-inline: 0rem;
     }
 }
@@ -88,8 +85,20 @@ body > * {
 section {
     width: min(100%, var(--max-width));
     padding-inline: var(--padding-inline);
-    padding-top: var(--padding-top);
+    padding-block: var(--padding-block);
+    position: relative;
     z-index: inherit;
+    isolation: isolate;
+
+    .section_bg {
+        width: 100vw;
+        height: 100%;
+        background: var(--clr-primary-900);
+        transform: translateX(calc(-50% + 50vw));
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
 }
 
 ul,
