@@ -20,6 +20,7 @@
 
     --clr-secondary-900: rgba(20, 20, 20, 1);
     --clr-black-900: rgba(0, 0, 0, 1);
+    --clr-black-500: rgba(0, 0, 0, 0.5);
     --clr-gray-900: rgba(170, 170, 170, 1);
     --clr-white-900: rgba(255, 255, 255, 1);
     --clr-accent: rgba(255, 255, 255, 0.8);
@@ -27,11 +28,16 @@
     --fs-100: 0.8rem;
     --fs-200: 1rem;
     --fs-300: 1.25rem;
-    --fs-400: 1.625rem;
-    --fs-500: 2rem;
+    --fs-400: 1.3rem;
+    --fs-500: 1.7rem;
     --fs-700: 3rem;
 
     --padding-inline: 1rem;
+    --padding-top: 3rem;
+
+    @include for-tablet-landscape-up {
+        --padding-top: 8rem;
+    }
 
     @include for-desktop-up {
         // --fs-100: 1.125rem;
@@ -41,6 +47,7 @@
         // --fs-500: 4rem;
         --fs-700: 4rem;
 
+        --padding-top: 10rem;
         --padding-inline: 0rem;
     }
 }
@@ -81,7 +88,13 @@ body > * {
 section {
     width: min(100%, var(--max-width));
     padding-inline: var(--padding-inline);
+    padding-top: var(--padding-top);
     z-index: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
 }
 
 @media (prefers-color-scheme: dark) {

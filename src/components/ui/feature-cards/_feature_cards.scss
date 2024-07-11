@@ -14,8 +14,12 @@
             background-color: var(--clr-accent);
             border: 1px solid var(--clr-secondary-900);
 
-            & > * {
+            & > *:not(p) {
                 color: var(--clr-black-900);
+            }
+
+            p {
+                color: var(--clr-black-500);
             }
         }
     }
