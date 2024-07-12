@@ -97,7 +97,7 @@ export const Testimonials = () => {
                                         alt={name}
                                     />
                                     <div className="person_info">
-                                        <h3 className="h_4">{name}</h3>
+                                        <h5 className="h_4">{name}</h5>
                                         <p className="p">{designation}</p>
                                     </div>
                                 </div>

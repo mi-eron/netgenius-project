@@ -87,7 +87,7 @@ export const Services = () => {
                         <IoMdCall className="h_4" />
                     </span>
                     <div className="btn--info">
-                        <h4 className="h_4">(123)-456-789</h4>
+                        <h5 className="h_4">(123)-456-789</h5>
                         <p className="p p--up">Talk to an expert</p>
                     </div>
                 </button>

@@ -4,7 +4,7 @@
     --_max-width: 350px;
     --container-padding: 25px;
 
-    @include flex(column, flex-start, $gap: 1rem);
+    @include flex(column, flex-start, $gap: 0.3rem);
     @include for-tablet-portrait-up {
         --_max-width: 95%;
     }

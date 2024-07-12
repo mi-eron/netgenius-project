@@ -61,7 +61,7 @@ export const Clients = () => {
                     </div>
                 ))}
             </div>
-            <h4 className="h_4">We are trusted by thousands of clients</h4>
+            <h5 className="h_4">We are trusted by thousands of clients</h5>
             <div className="small_clients">
                 {smallClients.map(({ id, icon }) => (
                     <Image

@@ -8,6 +8,7 @@ import {
     Clients,
     FeatureCards,
     Hero,
+    Information,
     Navbar,
     Services,
     Testimonials,
@@ -33,6 +34,7 @@ export default function Home() {
             <Testimonials />
             <Clients />
             <Benefits />
+            <Information />
         </main>
     );
 }

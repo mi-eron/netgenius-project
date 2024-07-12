@@ -8,17 +8,26 @@
     .about_content {
         width: 100%;
         max-width: var(--_max-width);
-        @include flex(column, flex-start, flex-start, $gap: 1rem);
+        @include flex(column, flex-start, flex-start, $gap: 0.3rem);
+
+        p.p {
+            margin-top: 1rem;
+        }
 
         .about--bullet_points {
-            @include flex(column, $gap: 1rem);
+            margin-top: 2rem;
+            @include flex(column, $gap: 2rem);
 
             .bullet_item {
                 @include flex(row, flex-start, flex-start, $gap: 1rem);
 
                 .content {
                     width: 90%;
-                    @include flex(column, flex-start, flex-start, $gap: 1rem);
+                    @include flex(column, flex-start, flex-start, $gap: 0.5rem);
+
+                    p.p {
+                        margin-top: 0rem;
+                    }
                 }
             }
         }

@@ -37,11 +37,18 @@
         .nav_item {
             padding: 0.5rem;
             @include flex();
-            @include clickable();
+            border-bottom: 1px solid transparent;
             opacity: 0;
             transform: translateY(-75%);
             animation: nav_link_animation calc(var(--_i) * 0.25s) ease-in-out
                 forwards;
+            transition: border-bottom 0.2s ease-in-out;
+            @include clickable();
+
+            &:hover,
+            &:focus {
+                border-bottom: 1px solid var(--clr-gray-900);
+            }
 
             &--selected {
                 border-bottom: 1px solid var(--clr-white-900);

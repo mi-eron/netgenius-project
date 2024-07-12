@@ -10,12 +10,16 @@
         .content_container {
             width: min(400px, 100%);
             padding: 2rem 0.5rem;
-            @include flex(column, center, flex-start, $gap: 0.5rem);
+            @include flex(column, center, flex-start, $gap: 0.3rem);
             background-color: var(--clr-accent);
             border-radius: var(--border-radius);
 
             & > :not(p) {
                 color: var(--clr-black-900);
+            }
+
+            p.p {
+                margin-top: 1rem;
             }
 
             .benefits--bullet-points {

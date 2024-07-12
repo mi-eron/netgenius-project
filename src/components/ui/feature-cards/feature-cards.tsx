@@ -39,7 +39,7 @@ export const FeatureCards = () => {
                         height={50}
                         alt="Feature Card Icon"
                     />
-                    <h3 className="h_3">{title}</h3>
+                    <h4 className="h_3">{title}</h4>
                     <p className={`p ${id === 2 && "p--darker"}`}>
                         {description}
                     </p>
