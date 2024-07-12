@@ -1,7 +1,7 @@
 import "./_about.scss";
+import Image from "next/image";
 import { RiUserStarLine } from "react-icons/ri";
 import { HiOutlineSupport } from "react-icons/hi";
-import Image from "next/image";
 
 export const About = () => {
     return (

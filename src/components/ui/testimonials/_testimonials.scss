@@ -1,0 +1,108 @@
+@import "@/styles/global";
+
+.testimonials {
+    --_max-width: 400px;
+
+    @include flex(column, $gap: 1rem);
+    position: relative;
+    isolation: isolate;
+
+    .quote_icon {
+        width: 90%;
+        @include flex(row, flex-end);
+
+        img {
+            width: auto;
+            height: 3.125rem;
+        }
+    }
+
+    .embla {
+        width: 100%;
+        overflow: hidden;
+
+        .embla_container {
+            display: flex;
+
+            .embla_slide {
+                flex: 0 0 100%;
+                min-width: 0;
+                @include flex(column, $gap: 1rem);
+                cursor: -moz-grabbing;
+                cursor: grabbing;
+
+                & > p {
+                    max-width: var(--_max-width);
+                    text-align: center;
+                    -webkit-user-select: none;
+                    user-select: none;
+                }
+
+                .person {
+                    @include flex(row, $gap: 0.8rem);
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .person_info {
+                        @include flex(column, center, flex-start, $gap: 0.2rem);
+                    }
+                }
+            }
+        }
+
+        @include for-tablet-portrait-up {
+            width: 80%;
+        }
+    }
+
+    .slide_controls {
+        width: 90%;
+        height: calc(100% - var(--padding-block));
+        @include flex();
+        position: absolute;
+        z-index: -1;
+
+        .arrow {
+            @include reset();
+            display: none;
+            @include clickable();
+            color: var(--clr-white-900);
+            position: absolute;
+
+            &--left {
+                left: 0;
+            }
+
+            &--right {
+                right: 0;
+            }
+
+            @include for-tablet-portrait-up {
+                @include flex();
+            }
+        }
+
+        .slide_indicators {
+            @include flex($gap: 0.5rem);
+            position: absolute;
+            bottom: 0;
+
+            .indicator {
+                width: 0.35rem;
+                height: 0.35rem;
+                background-color: var(--clr-gray-500);
+                border-radius: 50%;
+                @include clickable();
+
+                &--active {
+                    background-color: var(--clr-white-900);
+                }
+            }
+        }
+    }
+}

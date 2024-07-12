@@ -1,5 +1,5 @@
-import Image from "next/image";
 import "./_feature_cards.scss";
+import Image from "next/image";
 
 const featureCards = [
     {

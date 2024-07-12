@@ -8,6 +8,7 @@ import {
     Hero,
     Navbar,
     Services,
+    Testimonials,
 } from "@/components";
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
             <FeatureCards />
             <About />
             <Services />
+            <Testimonials />
         </main>
     );
 }

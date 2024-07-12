@@ -97,7 +97,7 @@
 }
 
 .icon {
-    width: 60px;
+    width: auto;
     height: 45px;
     @include flex();
     color: var(--clr-black-900);
