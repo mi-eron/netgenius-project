@@ -10,6 +10,7 @@ import {
     Hero,
     Information,
     Navbar,
+    Processes,
     Services,
     Testimonials,
 } from "@/components";
@@ -35,6 +36,7 @@ export default function Home() {
             <Clients />
             <Benefits />
             <Information />
+            <Processes />
         </main>
     );
 }

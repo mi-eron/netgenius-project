@@ -1,0 +1,35 @@
+@import "@/styles/global";
+
+.processes {
+    @include flex(column, $gap: 0.3);
+
+    p.p {
+        max-width: min(100%, 350px);
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .processes--card-container {
+        width: min(800px, 100%);
+        margin-top: 2rem;
+        @include flex(row, $gap: 1rem, $wrap: wrap);
+
+        .card {
+            width: 45%;
+            aspect-ratio: 1/0.6;
+
+            p.p {
+                margin-top: 0rem;
+            }
+        }
+
+        @include for-tablet-portrait-up {
+            @include flex(row, space-between, $gap: 1rem);
+
+            .card {
+                width: 23%;
+                aspect-ratio: 1/0.8;
+            }
+        }
+    }
+}
