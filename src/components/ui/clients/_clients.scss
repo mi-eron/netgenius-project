@@ -1,0 +1,56 @@
+@import "@/styles/global";
+
+.clients {
+    --_gap: 2rem;
+    --_max-width: 650px;
+    @include flex(column, $gap: var(--_gap));
+
+    & > * {
+        text-align: center;
+    }
+
+    .big_clients {
+        width: min(var(--_max-width), 100%);
+        @include flex(row, $gap: 1rem);
+
+        .big_client {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/0.75;
+            @include flex();
+            border: 1px solid var(--clr-white-900);
+            border-radius: var(--border-radius);
+
+            img {
+                width: 90%;
+                height: 85%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .small_clients {
+        width: min(var(--_max-width), 90%);
+        @include flex(row, space-between, $wrap: wrap);
+
+        img {
+            width: 33%;
+            height: auto;
+            flex: 0 0 auto;
+        }
+
+        @include for-tablet-portrait-up {
+            @include flex(row, space-between, $wrap: nowrap);
+
+            img {
+                width: calc(100% / 6);
+                height: auto;
+                flex: 1 0 auto;
+            }
+        }
+    }
+
+    @include for-tablet-landscape-up {
+        --_gap: 3rem;
+    }
+}
