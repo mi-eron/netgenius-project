@@ -40,7 +40,9 @@ export const FeatureCards = () => {
                         alt="Feature Card Icon"
                     />
                     <h3 className="h_3">{title}</h3>
-                    <p className="p">{description}</p>
+                    <p className={`p ${id === 2 && "p--darker"}`}>
+                        {description}
+                    </p>
                 </div>
             ))}
         </section>

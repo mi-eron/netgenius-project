@@ -21,7 +21,7 @@ export const About = () => {
                     aesthetically pleasing but also functioanlly superior.
                 </p>
 
-                <ul className="bullet_points">
+                <ul className="about--bullet_points">
                     <li className="bullet_item">
                         <span className="icon--round">
                             <RiUserStarLine className="h_4" />

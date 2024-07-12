@@ -5,7 +5,7 @@
 .h_1 {
     font-size: var(--fs-500);
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 500;
 }
 .h_2 {
     font-size: var(--fs-400);
@@ -22,6 +22,10 @@
 
     &--up {
         text-transform: uppercase;
+    }
+
+    &--darker {
+        color: var(--clr-black-800);
     }
 }
 
@@ -74,13 +78,12 @@
     border-radius: var(--border-radius);
     color: var(--clr-white-900);
 
-    & > * {
+    & > :not(p) {
         color: inherit;
     }
 
     p {
         text-align: center;
-        color: var(--clr-gray-900);
     }
 
     &--bordered {

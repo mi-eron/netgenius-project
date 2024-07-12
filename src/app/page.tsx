@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import {
     About,
+    Benefits,
     BGImage,
     Clients,
     FeatureCards,
@@ -31,6 +32,7 @@ export default function Home() {
             <Services />
             <Testimonials />
             <Clients />
+            <Benefits />
         </main>
     );
 }

@@ -1,4 +1,5 @@
 export * from "./about/about";
+export * from "./benefits/benefits";
 export * from "./bg-image/bg-image";
 export * from "./clients/clients";
 export * from "./feature-cards/feature-cards";

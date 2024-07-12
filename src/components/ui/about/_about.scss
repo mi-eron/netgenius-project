@@ -10,7 +10,7 @@
         max-width: var(--_max-width);
         @include flex(column, flex-start, flex-start, $gap: 1rem);
 
-        .bullet_points {
+        .about--bullet_points {
             @include flex(column, $gap: 1rem);
 
             .bullet_item {
