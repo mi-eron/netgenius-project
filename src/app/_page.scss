@@ -6,6 +6,7 @@
     min-height: 100svh;
     @include flex(column, flex-start);
     position: relative;
+    overflow: hidden;
 
     .body_image {
         width: 100%;

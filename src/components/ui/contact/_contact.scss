@@ -1,0 +1,61 @@
+@import "@/styles/global";
+
+.contact {
+    @include flex();
+
+    .contact--inner-container {
+        width: min(950px, 100%);
+        @include flex(column, $gap: 2rem);
+
+        .contact_content {
+            width: min(450px, 100%);
+            @include flex(column, center, flex-start, $gap: 1rem);
+
+            & > * {
+                text-align: center;
+            }
+
+            @include for-tablet-landscape-up {
+                & > * {
+                    text-align: left;
+                }
+            }
+        }
+
+        .contact_cta {
+            width: min(200px, 100%);
+            @include flex(column, $gap: 1rem);
+
+            .cta--top-btns {
+                width: 100%;
+                @include flex(row, flex-start, $gap: 0.8rem, $wrap: wrap);
+
+                & > * {
+                    width: fit-content;
+                    padding-inline: 0;
+                }
+            }
+
+            .cta--bottom-btns {
+                width: 100%;
+                height: fit-content;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+
+            @include for-tablet-portrait-up {
+                width: fit-content;
+
+                .cta--top-btns {
+                    @include flex(row, flex-start, $gap: 1rem);
+                }
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            @include flex(row, space-between, flex-end);
+        }
+    }
+}

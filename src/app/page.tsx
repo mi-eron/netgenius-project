@@ -6,6 +6,7 @@ import {
     Benefits,
     BGImage,
     Clients,
+    Contact,
     FeatureCards,
     Hero,
     Information,
@@ -37,6 +38,7 @@ export default function Home() {
             <Benefits />
             <Information />
             <Processes />
+            <Contact />
         </main>
     );
 }
