@@ -67,6 +67,7 @@ export const Navbar = () => {
                             whileInView="animate"
                             custom={id}
                             viewport={{ once: true }}
+                            onClick={() => setExpanded(false)}
                         >
                             {label}
                         </motion.li>
