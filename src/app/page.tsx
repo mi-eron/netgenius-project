@@ -7,7 +7,7 @@ import {
     BGImage,
     Clients,
     Contact,
-    FeatureCards,
+    Features,
     Footer,
     Hero,
     Information,
@@ -31,7 +31,7 @@ export default function Home() {
             <Navbar />
             <BGImage />
             <Hero />
-            <FeatureCards />
+            <Features />
             <About />
             <Services />
             <Testimonials />

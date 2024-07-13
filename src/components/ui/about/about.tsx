@@ -1,13 +1,24 @@
+"use client";
+
 import "./_about.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { RiUserStarLine } from "react-icons/ri";
 import { HiOutlineSupport } from "react-icons/hi";
+
+import { aboutSectionAnim } from "@/libs";
 
 export const About = () => {
     return (
         <section className="about">
             <div className="section_bg" />
-            <div className="about_content">
+            <motion.div
+                className="about_content"
+                variants={aboutSectionAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 <h2 className="h_1">About Us</h2>
                 <h3 className="h_2">
                     Unleashing possibilities in the digital world.
@@ -49,8 +60,14 @@ export const About = () => {
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div className="about_image">
+            </motion.div>
+            <motion.div
+                className="about_image"
+                variants={aboutSectionAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 <Image
                     src="/images/about-image.jpg"
                     quality={100}
@@ -58,7 +75,7 @@ export const About = () => {
                     height={200}
                     alt="About Image"
                 />
-            </div>
+            </motion.div>
         </section>
     );
 };

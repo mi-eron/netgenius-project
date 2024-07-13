@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import "./_information.scss";
 import Image from "next/image";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { useState } from "react";
+import { motion } from "framer-motion";
+
+import { informationColumnAnim } from "@/libs";
 
 interface AccordionItem {
     id: number;
@@ -65,7 +68,14 @@ export const Information: React.FC = () => {
         <section className="information">
             <div className="section_bg" />
 
-            <div className="information_content">
+            <motion.div
+                className="information_content"
+                variants={informationColumnAnim}
+                initial="hidden"
+                whileInView="animate"
+                custom={1}
+                viewport={{ once: true }}
+            >
                 <h2 className="h_1">Why Choose Us</h2>
                 <h3 className="h_2">
                     Crafting experiences, delivering success
@@ -78,8 +88,15 @@ export const Information: React.FC = () => {
                     you are getting a partner who is committed to your growth
                     and success.
                 </p>
-            </div>
-            <div className="information_image">
+            </motion.div>
+            <motion.div
+                className="information_image"
+                variants={informationColumnAnim}
+                initial="hidden"
+                whileInView="animate"
+                custom={2}
+                viewport={{ once: true }}
+            >
                 <Image
                     src="/images/information-image.jpg"
                     quality={100}
@@ -87,8 +104,15 @@ export const Information: React.FC = () => {
                     height={400}
                     alt="Information Image"
                 />
-            </div>
-            <ul className="information_accordion">
+            </motion.div>
+            <motion.ul
+                className="information_accordion"
+                variants={informationColumnAnim}
+                initial="hidden"
+                whileInView="animate"
+                custom={3}
+                viewport={{ once: true }}
+            >
                 {accordionData.map(({ id, title, content }, index) => (
                     <li className="accordion_item" key={id}>
                         <div
@@ -107,7 +131,7 @@ export const Information: React.FC = () => {
                         )}
                     </li>
                 ))}
-            </ul>
+            </motion.ul>
         </section>
     );
 };

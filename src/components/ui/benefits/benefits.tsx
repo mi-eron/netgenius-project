@@ -1,6 +1,11 @@
+"use client";
+
 import "./_benefits.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
+
+import { benefitsContentAnim, benefitsNumbersAnim } from "@/libs";
 
 export const Benefits = () => {
     return (
@@ -16,7 +21,13 @@ export const Benefits = () => {
             </div>
 
             <div className="benefits--inner-container">
-                <div className="content_container">
+                <motion.div
+                    className="content_container"
+                    variants={benefitsContentAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
                     <h2 className="h_1">Key Benefits</h2>
                     <h3 className="h_2">Your partner in digital success.</h3>
                     <p className="p p--darker">
@@ -45,9 +56,15 @@ export const Benefits = () => {
                             Ongoing support and assistance.
                         </li>
                     </ul>
-                </div>
+                </motion.div>
 
-                <div className="achievements_container">
+                <motion.div
+                    className="achievements_container"
+                    variants={benefitsNumbersAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
                     <div className="achievement_item">
                         <h3 className="h_2">12+</h3>
                         <p className="p p--up">Years of experience</p>
@@ -56,7 +73,7 @@ export const Benefits = () => {
                         <h3 className="h_2">500+</h3>
                         <p className="p p--up">Happy clients</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

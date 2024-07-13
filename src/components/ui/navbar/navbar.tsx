@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, CSSProperties } from "react";
+import { useState } from "react";
 import "./_navbar.scss";
+import { motion } from "framer-motion";
 import { CgClose } from "react-icons/cg";
 import { RiMenu3Fill } from "react-icons/ri";
 import { IoMdCall } from "react-icons/io";
 
-interface CustomCSSProperties extends CSSProperties {
-    "--_i": number;
-}
+import { navLogoAnim, navLinkAnim } from "@/libs";
 
 const navLinks = [
     {
@@ -43,7 +42,15 @@ export const Navbar = () => {
     return (
         <section className={`navbar ${isExtended && "navbar--bg"}`}>
             <div className="nav_buttons">
-                <h3 className="logo h_2">NetGenius</h3>
+                <motion.h3
+                    className="logo h_2"
+                    variants={navLogoAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
+                    NetGenius
+                </motion.h3>
 
                 <button className="nav_button" onClick={toggleExtension}>
                     {isExtended ? (
@@ -56,17 +63,28 @@ export const Navbar = () => {
 
             <ul className={`nav_links ${!isExtended && "nav_links--hidden"}`}>
                 {navLinks.map(({ id, label }) => (
-                    <li
+                    <motion.li
                         key={id}
                         className="nav_item h_4"
-                        style={{ "--_i": id } as CustomCSSProperties}
+                        variants={navLinkAnim}
+                        initial="hidden"
+                        whileInView="animate"
+                        custom={id}
+                        viewport={{ once: true }}
                     >
                         {label}
-                    </li>
+                    </motion.li>
                 ))}
-                <span className="icon--round icon--clickable">
+                <motion.span
+                    className="icon--round icon--clickable"
+                    variants={navLinkAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    custom={navLinks.length + 1}
+                    viewport={{ once: true }}
+                >
                     <IoMdCall className="h_4" />
-                </span>
+                </motion.span>
             </ul>
         </section>
     );

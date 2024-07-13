@@ -1,5 +1,15 @@
-import "./_feature_cards.scss";
+"use client";
+
+import { useEffect, useRef } from "react";
+import "./_features.scss";
 import Image from "next/image";
+import { motion, useAnimation, useInView } from "framer-motion";
+
+import {
+    featureCenterCardAnim,
+    featureLeftCardAnim,
+    featureRightCardAnim,
+} from "@/libs";
 
 const featureCards = [
     {
@@ -25,12 +35,36 @@ const featureCards = [
     },
 ];
 
-export const FeatureCards = () => {
+export const Features = () => {
+    const rootRef = useRef<HTMLHeadingElement | null>(null);
+    const isInView = useInView(rootRef, { once: true });
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start("animate");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isInView]);
+
     return (
-        <section className="feature_cards">
+        <section className="features">
             <div className="section_bg" />
             {featureCards.map(({ id, title, description, icon }) => (
-                <div key={id} className="card">
+                <motion.div
+                    key={id}
+                    className="card"
+                    variants={
+                        id === 1
+                            ? featureLeftCardAnim
+                            : id === 2
+                            ? featureCenterCardAnim
+                            : featureRightCardAnim
+                    }
+                    initial="hidden"
+                    animate={mainControls}
+                    viewport={{ once: true }}
+                >
                     <Image
                         className="icon"
                         src={icon}
@@ -43,8 +77,9 @@ export const FeatureCards = () => {
                     <p className={`p ${id === 2 && "p--darker"}`}>
                         {description}
                     </p>
-                </div>
+                </motion.div>
             ))}
+            <div ref={rootRef} className="features--hidden_element" />
         </section>
     );
 };

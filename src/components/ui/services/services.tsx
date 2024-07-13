@@ -1,7 +1,17 @@
+"use client";
+
 import "./_services.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import { IoMdCall } from "react-icons/io";
+
+import {
+    servicesTextAnim,
+    servicesCardAnim,
+    servicesCtaLeft,
+    servicesCtaRight,
+} from "@/libs";
 
 const serviceCards = [
     {
@@ -41,11 +51,25 @@ const serviceCards = [
 export const Services = () => {
     return (
         <section className="services">
-            <h2 className="h_1">Our Services</h2>
-            <h3 className="h_2">
+            <motion.h2
+                className="h_1"
+                variants={servicesTextAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
+                Our Services
+            </motion.h2>
+            <motion.h3
+                className="h_2"
+                variants={servicesTextAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 Crafting digital solutions tailored to your unique business
                 needs
-            </h3>
+            </motion.h3>
 
             <div className="services--cards_container">
                 <div className="container-corners">
@@ -59,9 +83,14 @@ export const Services = () => {
                     </div>
                 </div>
                 {serviceCards.map(({ id, icon, title, description }) => (
-                    <div
-                        className="card card--bordered card--flex-start"
+                    <motion.div
                         key={id}
+                        className="card card--bordered card--flex-start"
+                        variants={servicesCardAnim}
+                        initial="hidden"
+                        whileInView="animate"
+                        custom={id}
+                        viewport={{ once: true }}
                     >
                         <Image
                             className="icon"
@@ -76,13 +105,27 @@ export const Services = () => {
                         <button className="p services--card-btn">
                             Service Details <BsArrowRight />
                         </button>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
             <div className="services--btn-container">
-                <button className="btn h_4">Discover More</button>
-                <button className="btn btn--no-border h_4">
+                <motion.button
+                    className="btn h_4"
+                    variants={servicesCtaLeft}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
+                    Discover More
+                </motion.button>
+                <motion.button
+                    className="btn btn--no-border h_4"
+                    variants={servicesCtaRight}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
                     <span className="icon--round">
                         <IoMdCall className="h_4" />
                     </span>
@@ -90,7 +133,7 @@ export const Services = () => {
                         <h5 className="h_4">(123)-456-789</h5>
                         <p className="p p--up">Talk to an expert</p>
                     </div>
-                </button>
+                </motion.button>
             </div>
         </section>
     );

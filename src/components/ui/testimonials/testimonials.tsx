@@ -3,9 +3,12 @@
 import { useCallback, useEffect, useState } from "react";
 import "./_testimonials.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaCarouselType } from "embla-carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+
+import { emblaSlidesAnim } from "@/libs";
 
 const testimonials = [
     {
@@ -80,7 +83,14 @@ export const Testimonials = () => {
                     alt="Quote Icon"
                 />
             </div>
-            <div className="embla" ref={emblaRef}>
+            <motion.div
+                ref={emblaRef}
+                className="embla"
+                variants={emblaSlidesAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 <div className="embla_container">
                     {testimonials.map(
                         ({ id, name, image, designation, testimony }) => (
@@ -105,7 +115,7 @@ export const Testimonials = () => {
                         )
                     )}
                 </div>
-            </div>
+            </motion.div>
             <div className="slide_controls">
                 <button
                     className="arrow arrow--left"

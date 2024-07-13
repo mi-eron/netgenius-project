@@ -3,7 +3,7 @@ export * from "./benefits/benefits";
 export * from "./bg-image/bg-image";
 export * from "./clients/clients";
 export * from "./contact/contact";
-export * from "./feature-cards/feature-cards";
+export * from "./features/features";
 export * from "./footer/footer";
 export * from "./hero/hero";
 export * from "./information/information";

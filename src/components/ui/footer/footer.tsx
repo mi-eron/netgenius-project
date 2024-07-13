@@ -1,4 +1,7 @@
+"use client";
+
 import "./_footer.scss";
+import { motion } from "framer-motion";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn, FaLocationDot } from "react-icons/fa6";
 import { BiLogoInstagramAlt } from "react-icons/bi";
@@ -7,12 +10,20 @@ import { MdAlternateEmail } from "react-icons/md";
 import { IoChevronForward } from "react-icons/io5";
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 
+import { footerAnim } from "@/libs";
+
 export const Footer = () => {
     return (
         <section className="footer">
             <div className="section_bg" />
 
-            <div className="footer_content">
+            <motion.div
+                className="footer_content"
+                variants={footerAnim}
+                initial="hidden"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 <div className="first_column">
                     <h3 className="logo h_2">NetGenius</h3>
 
@@ -82,7 +93,7 @@ export const Footer = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <div className="divider" />
 

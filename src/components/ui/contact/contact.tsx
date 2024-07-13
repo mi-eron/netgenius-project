@@ -1,7 +1,12 @@
+"use client";
+
 import "./_contact.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
+
+import { contactLeftAnim, contactRightAnim } from "@/libs";
 
 export const Contact = () => {
     return (
@@ -17,7 +22,13 @@ export const Contact = () => {
             </div>
 
             <div className="contact--inner-container">
-                <div className="contact_content">
+                <motion.div
+                    className="contact_content"
+                    variants={contactLeftAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
                     <h3 className="h_2">
                         Grow your business with our robust digital solutions.
                     </h3>
@@ -26,9 +37,15 @@ export const Contact = () => {
                         providing high-quality solutions. Get in touch with us
                         to get started.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="contact_cta">
+                <motion.div
+                    className="contact_cta"
+                    variants={contactRightAnim}
+                    initial="hidden"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                >
                     <div className="cta--top-btns">
                         <button className="btn btn--no-border h_4">
                             <span className="icon--round">
@@ -52,7 +69,7 @@ export const Contact = () => {
                     <div className="cta--bottom-btns">
                         <button className="btn h_4">Get Started</button>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
