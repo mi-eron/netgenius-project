@@ -1,16 +1,28 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import "./_contact.scss";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 
 import { contactLeftAnim, contactRightAnim } from "@/libs";
 
 export const Contact = () => {
+    const rootRef = useRef<HTMLHeadingElement | null>(null);
+    const isInView = useInView(rootRef, { once: true });
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start("animate");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isInView]);
+
     return (
-        <section className="contact">
+        <section className="contact" id="Contact">
             <div className="section_bg">
                 <Image
                     src="/images/contact-bg.jpg"
@@ -26,7 +38,7 @@ export const Contact = () => {
                     className="contact_content"
                     variants={contactLeftAnim}
                     initial="hidden"
-                    whileInView="animate"
+                    animate={mainControls}
                     viewport={{ once: true }}
                 >
                     <h3 className="h_2">
@@ -43,7 +55,7 @@ export const Contact = () => {
                     className="contact_cta"
                     variants={contactRightAnim}
                     initial="hidden"
-                    whileInView="animate"
+                    animate={mainControls}
                     viewport={{ once: true }}
                 >
                     <div className="cta--top-btns">
@@ -71,6 +83,7 @@ export const Contact = () => {
                     </div>
                 </motion.div>
             </div>
+            <div ref={rootRef} className="contact--hidden_element" />
         </section>
     );
 };

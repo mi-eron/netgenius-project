@@ -27,7 +27,7 @@
 
             .services--card-btn {
                 @include reset();
-                padding-bottom: 10px;
+                padding-bottom: 0.25rem;
                 @include flex($gap: 0.7rem);
                 @include clickable();
                 border-bottom: 1px solid var(--clr-white-900);

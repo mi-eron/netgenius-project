@@ -50,7 +50,7 @@ const serviceCards = [
 
 export const Services = () => {
     return (
-        <section className="services">
+        <section className="services" id="Services">
             <motion.h2
                 className="h_1"
                 variants={servicesTextAnim}

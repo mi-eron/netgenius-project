@@ -8,6 +8,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { IoMdCall } from "react-icons/io";
 
 import { navLogoAnim, navLinkAnim } from "@/libs";
+import Link from "next/link";
 
 const navLinks = [
     {
@@ -18,29 +19,24 @@ const navLinks = [
     {
         id: 2,
         label: "Services",
-        path: "/services",
+        path: "#Services",
     },
     {
         id: 3,
-        label: "Portfolio",
-        path: "/ortfolio",
-    },
-    {
-        id: 4,
         label: "Contact",
-        path: "/contact",
+        path: "#Contact",
     },
 ];
 
 export const Navbar = () => {
-    const [isExtended, setExtended] = useState(false);
+    const [isExpanded, setExpanded] = useState(false);
 
-    const toggleExtension = () => {
-        setExtended((prev) => !prev);
+    const toggleExpansion = () => {
+        setExpanded((prev) => !prev);
     };
 
     return (
-        <section className={`navbar ${isExtended && "navbar--bg"}`}>
+        <section className={`navbar ${isExpanded && "navbar--bg"}`}>
             <div className="nav_buttons">
                 <motion.h3
                     className="logo h_2"
@@ -52,28 +48,29 @@ export const Navbar = () => {
                     NetGenius
                 </motion.h3>
 
-                <button className="nav_button" onClick={toggleExtension}>
-                    {isExtended ? (
-                        <CgClose className="h_2" />
+                <button className="nav_button" onClick={toggleExpansion}>
+                    {isExpanded ? (
+                        <CgClose className="expanded | h_2" />
                     ) : (
-                        <RiMenu3Fill className="h_2" />
+                        <RiMenu3Fill className="collapsed | h_2" />
                     )}
                 </button>
             </div>
 
-            <ul className={`nav_links ${!isExtended && "nav_links--hidden"}`}>
-                {navLinks.map(({ id, label }) => (
-                    <motion.li
-                        key={id}
-                        className="nav_item h_4"
-                        variants={navLinkAnim}
-                        initial="hidden"
-                        whileInView="animate"
-                        custom={id}
-                        viewport={{ once: true }}
-                    >
-                        {label}
-                    </motion.li>
+            <ul className={`nav_links ${!isExpanded && "nav_links--hidden"}`}>
+                {navLinks.map(({ id, label, path }) => (
+                    <Link key={id} href={path}>
+                        <motion.li
+                            className="nav_item | h_4"
+                            variants={navLinkAnim}
+                            initial="hidden"
+                            whileInView="animate"
+                            custom={id}
+                            viewport={{ once: true }}
+                        >
+                            {label}
+                        </motion.li>
+                    </Link>
                 ))}
                 <motion.span
                     className="icon--round icon--clickable"
