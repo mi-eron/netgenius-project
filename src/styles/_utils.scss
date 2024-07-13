@@ -117,6 +117,10 @@
         border-radius: 50%;
         color: var(--clr-black-900);
     }
+
+    &--clickable {
+        @include clickable();
+    }
 }
 
 .clickable {

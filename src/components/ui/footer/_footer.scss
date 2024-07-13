@@ -1,0 +1,119 @@
+@import "@/styles/global";
+
+.footer {
+    @include flex(column, $gap: 2rem);
+    padding-bottom: 2rem;
+
+    .footer_content {
+        --_max-width: 450px;
+
+        width: min(var(--_max-width), 100%);
+        @include flex(column, $gap: 3rem);
+
+        .title {
+            text-transform: uppercase;
+        }
+
+        .first_column {
+            width: 100%;
+            @include flex(row, space-between);
+
+            .media_links {
+                @include flex($gap: 0.3rem);
+
+                .media_link {
+                    width: 35px;
+                    height: 35px;
+                    @include flex();
+                    background-color: var(--clr-secondary-900);
+                    border-radius: var(--btn-border-radius);
+                }
+            }
+        }
+
+        .second_column {
+            width: 100%;
+            @include flex(
+                row,
+                space-between,
+                flex-start,
+                $gap: 2rem,
+                $wrap: wrap
+            );
+
+            .info_column {
+                min-width: fit-content;
+                @include flex(column, flex-start, flex-start, $gap: 1rem);
+
+                .info_list {
+                    @include flex(column, flex-start, flex-start, $gap: 0.5rem);
+
+                    .info_item {
+                        @include flex(row, flex-start, $gap: 0.5rem);
+                    }
+                }
+            }
+
+            @include for-tablet-portrait-up {
+                @include flex(row, space-between, flex-start, $gap: 2rem);
+            }
+        }
+
+        .third_column {
+            width: 100%;
+            @include flex(column, flex-start, flex-start, $gap: 1rem);
+
+            .newsletter_cta {
+                width: 100%;
+                @include flex(row, $gap: 1rem);
+
+                input {
+                    --_padding: 0.6rem 1rem;
+
+                    @include reset();
+                    width: 65%;
+                    padding: var(--_padding);
+                    background-color: var(--clr-secondary-900);
+                    border-radius: var(--border-radius);
+
+                    &:focus {
+                        outline: 1px solid var(--clr-gray-900);
+                    }
+                }
+
+                .btn {
+                    flex-grow: 1;
+                }
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            --_max-width: 100%;
+
+            @include flex(row, space-between, flex-start, $gap: 2rem);
+
+            .first_column {
+                width: fit-content;
+                @include flex(column, flex-start, flex-start, $gap: 1rem);
+            }
+
+            .second_column {
+                width: min(300px, 45%);
+            }
+
+            .third_column {
+                width: min(400px, 55%);
+            }
+        }
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background-color: var(--clr-gray-900);
+    }
+
+    .copyright {
+        @include flex($gap: 0.5rem);
+    }
+}

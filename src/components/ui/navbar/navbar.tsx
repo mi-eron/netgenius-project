@@ -2,9 +2,9 @@
 
 import { useState, CSSProperties } from "react";
 import "./_navbar.scss";
-
 import { CgClose } from "react-icons/cg";
 import { RiMenu3Fill } from "react-icons/ri";
+import { IoMdCall } from "react-icons/io";
 
 interface CustomCSSProperties extends CSSProperties {
     "--_i": number;
@@ -64,6 +64,9 @@ export const Navbar = () => {
                         {label}
                     </li>
                 ))}
+                <span className="icon--round icon--clickable">
+                    <IoMdCall className="h_4" />
+                </span>
             </ul>
         </section>
     );

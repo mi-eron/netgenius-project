@@ -8,6 +8,7 @@ import {
     Clients,
     Contact,
     FeatureCards,
+    Footer,
     Hero,
     Information,
     Navbar,
@@ -39,6 +40,7 @@ export default function Home() {
             <Information />
             <Processes />
             <Contact />
+            <Footer />
         </main>
     );
 }

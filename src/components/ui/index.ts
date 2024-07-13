@@ -4,6 +4,7 @@ export * from "./bg-image/bg-image";
 export * from "./clients/clients";
 export * from "./contact/contact";
 export * from "./feature-cards/feature-cards";
+export * from "./footer/footer";
 export * from "./hero/hero";
 export * from "./information/information";
 export * from "./navbar/navbar";
