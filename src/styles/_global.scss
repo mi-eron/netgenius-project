@@ -78,10 +78,12 @@ body {
 
 body {
     background: var(--clr-primary-900);
+    color: var(--clr-white-900);
 }
 
 body > * {
     font-family: inherit;
+    color: inherit;
 }
 
 section {
@@ -112,12 +114,6 @@ section {
 ul,
 ol {
     list-style: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
 }
 
 @import "./utils";
